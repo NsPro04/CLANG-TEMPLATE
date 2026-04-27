@@ -1,0 +1,9 @@
+[requires]
+
+[options]
+
+[layout]
+vs_layout
+
+[generators]
+MSBuildDeps

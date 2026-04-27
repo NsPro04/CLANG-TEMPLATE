@@ -1,0 +1,39 @@
+[settings]
+os=Windows
+arch=x86_64
+#build_type = compiler.runtime_type = $(Configuration)
+
+compiler=clang
+compiler.version = {{ os.getenv("LLVMToolsVersion").split('.')[0] }}
+
+compiler.cppstd=26
+
+compiler.runtime=dynamic
+compiler.runtime_version=v145
+
+########
+########
+
+[conf]
+tools.cmake.cmaketoolchain:generator=Visual Studio 18 2026
+
+tools.cmake.cmaketoolchain:extra_variables*={'CMAKE_C_STANDARD_LIBRARIES':   'msvcrt.lib msvcprt.lib iso_stdio_wide_specifiers.lib ${CMAKE_CXX_STANDARD_LIBRARIES} %(AdditionalDependencies)'}
+tools.cmake.cmaketoolchain:extra_variables*={'CMAKE_CXX_STANDARD_LIBRARIES': 'msvcrt.lib msvcprt.lib iso_stdio_wide_specifiers.lib ${CMAKE_CXX_STANDARD_LIBRARIES} %(AdditionalDependencies)'}
+
+tools.build:cflags=  ['-nobuiltininc /imsvc \\"$(LLVMLibcxxIncludeDir)/ /../\\"']
+tools.build:cxxflags=['-nobuiltininc /imsvc \\"$(LLVMLibcxxIncludeDir)/ /../\\"']
+
+tools.build:sharedlinkflags=['/LIBPATH:\\"$(LLVMInstallDir)/libcxx/lib/$(Configuration)/ /../\\"']
+tools.build:exelinkflags=   ['/LIBPATH:\\"$(LLVMInstallDir)/libcxx/lib/$(Configuration)/ /../\\"']
+
+########
+########
+
+########
+[replace_requires]
+########
+
+[platform_tool_requires]
+cmake/4.2.3
+#ninja/1.13.2
+#meson/1.10.2

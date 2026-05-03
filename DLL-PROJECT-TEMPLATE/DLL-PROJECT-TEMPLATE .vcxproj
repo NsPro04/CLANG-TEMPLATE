@@ -11,6 +11,10 @@
     </ProjectConfiguration>
   </ItemGroup>
 
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp" />
+  </ItemGroup>
+
   <PropertyGroup Label="Globals">
     <PlatformToolset>ClangCL</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>

@@ -32,7 +32,7 @@
 
   <ItemDefinitionGroup>
     <BuildLog>
-      <Path />
+      <Path>./conan/$(MSBuildProjectName).log</Path>
     </BuildLog>
   </ItemDefinitionGroup>
 

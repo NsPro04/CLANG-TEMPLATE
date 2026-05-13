@@ -36,6 +36,10 @@ tools.build:exelinkflags=   ['/LIBPATH:\\"$(LLVMInstallDir)/libcxx/lib/$(Configu
 [replace_requires]
 ########
 
+########
+[replace_tool_requires]
+########
+
 [platform_tool_requires]
 cmake/4.2.3
 #ninja/1.13.2

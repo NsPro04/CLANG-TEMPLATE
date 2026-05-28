@@ -115,6 +115,6 @@
   <ImportGroup Label="ExtensionTargets" />
 
   <ImportGroup Label="PropertySheets">
-    <Import Condition="exists('.\..\third_party\conan\conandeps.props')" Project=".\..\third_party\conan\conandeps.props" />
+    <Import Condition="exists('$(SolutionDir)\third_party\conan\conandeps.props')" Project="$(SolutionDir)\third_party\conan\conandeps.props" />
   </ImportGroup>
 </Project>

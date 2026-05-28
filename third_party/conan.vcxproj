@@ -39,7 +39,7 @@
   <ItemDefinitionGroup>
     <PreBuildEvent>
       <Command>
-        "conan" install ./../third_party/ -pr:a=./../third_party/default -s:a="build_type=$(Configuration)" -s:a="compiler.runtime_type=$(Configuration)" --build=missing --deployer=runtime_deploy --deployer-folder=./../dist/$(Configuration)/Bin/
+        "conan" install "." -pr:a="./default" -s:a="build_type=$(Configuration)" -s:a="compiler.runtime_type=$(Configuration)" --build=missing --deployer=runtime_deploy --deployer-folder="$(SolutionDir)\dist/$(Configuration)/Bin/"
       </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>

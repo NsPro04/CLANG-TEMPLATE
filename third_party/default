@@ -17,11 +17,7 @@ compiler.runtime_version=v145
 [conf]
 tools.cmake.cmaketoolchain:generator=Visual Studio 18 2026
 
-tools.cmake.cmaketoolchain:extra_variables*={'CMAKE_C_STANDARD_LIBRARIES':                      'msvcrt.lib msvcprt.lib iso_stdio_wide_specifiers.lib ${CMAKE_C_STANDARD_LIBRARIES} %(AdditionalDependencies)'}
-tools.cmake.cmaketoolchain:extra_variables*={'CMAKE_CXX_STANDARD_LIBRARIES':                    'msvcrt.lib msvcprt.lib iso_stdio_wide_specifiers.lib ${CMAKE_CXX_STANDARD_LIBRARIES} %(AdditionalDependencies)'}
-
-tools.cmake.cmaketoolchain:extra_variables*={'CACHE{CMAKE_C_STANDARD_LIBRARIES} FORCE VALUE':   'msvcrt.lib msvcprt.lib iso_stdio_wide_specifiers.lib $CACHE{CMAKE_C_STANDARD_LIBRARIES} %(AdditionalDependencies)'}
-tools.cmake.cmaketoolchain:extra_variables*={'CACHE{CMAKE_CXX_STANDARD_LIBRARIES} FORCE VALUE': 'msvcrt.lib msvcprt.lib iso_stdio_wide_specifiers.lib $CACHE{CMAKE_CXX_STANDARD_LIBRARIES} %(AdditionalDependencies)'}
+tools.build:compiler_executables={'c': 'clang-cl', 'cpp': 'clang-cl'}
 
 tools.build:cflags=  ['-nobuiltininc /imsvc \\"$(LLVMLibcxxIncludeDir)/ /../\\"']
 tools.build:cxxflags=['-nobuiltininc /imsvc \\"$(LLVMLibcxxIncludeDir)/ /../\\"']

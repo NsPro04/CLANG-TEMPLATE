@@ -82,7 +82,6 @@
       <DisableLanguageExtensions>true</DisableLanguageExtensions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>msvcrt.lib;msvcprt.lib;iso_stdio_wide_specifiers.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>NotSet</SubSystem>
     </Link>
     <PostBuildEvent>

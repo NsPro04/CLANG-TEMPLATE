@@ -25,13 +25,15 @@ KeepEmptyLines:
   AtStartOfFile:   true
 MaxEmptyLinesToKeep: 1
 PackConstructorInitializers: NextLine
-
 PenaltyIndentedWhitespace: 2
+SortIncludes:
+  Enabled:         false
+  IgnoreCase:      false
+  IgnoreExtension: false
+SpacesInAngles: Leave
+BreakTemplateDeclarations: Yes
 
 Standard: Latest
-SpacesInAngles: Leave
-
-BreakTemplateDeclarations: Yes
 
 PointerAlignment: Right
 ReferenceAlignment: Pointer

@@ -32,6 +32,7 @@ SortIncludes:
   IgnoreExtension: false
 SpacesInAngles: Leave
 BreakTemplateDeclarations: Yes
+ReflowComments: IndentOnly
 
 Standard: Latest
 

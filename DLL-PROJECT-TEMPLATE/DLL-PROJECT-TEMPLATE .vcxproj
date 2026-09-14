@@ -11,6 +11,10 @@
     </ProjectConfiguration>
   </ItemGroup>
 
+
+
+
+
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
@@ -77,9 +81,9 @@
       <SDLCheck>true</SDLCheck>
       <WarningLevel>Level4</WarningLevel>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalOptions>-nobuiltininc %(AdditionalOptions)</AdditionalOptions>
       <ConformanceMode>true</ConformanceMode>
       <DisableLanguageExtensions>true</DisableLanguageExtensions>
+      <AdditionalOptions>-nobuiltininc %(AdditionalOptions)</AdditionalOptions>
       <AdditionalIncludeDirectories>$(ProjectDir)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -88,9 +92,9 @@
     </Link>
     <CustomBuildStep>
       <Command>
-        IF EXIST "$(ProjectDir)\p" (rmdir /S /Q "$(ProjectDir)\p")
+        IF EXIST "$(ProjectDir)\p\$(Configuration)" (rmdir /S /Q "$(ProjectDir)\p\$(Configuration)")
 
-        mkdir "$(ProjectDir)\p"
+        IF NOT EXIST "$(ProjectDir)\p" (mkdir "$(ProjectDir)\p")
         mkdir "$(ProjectDir)\p\$(Configuration)"
         mkdir "$(ProjectDir)\p\$(Configuration)\lib"
         mkdir "$(ProjectDir)\p\$(Configuration)\bin"

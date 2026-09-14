@@ -25,16 +25,20 @@
     <VCProjectVersion>18.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ConfigurationType>Application</ConfigurationType>
   </PropertyGroup>
 
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
 
+  <PropertyGroup>
+    <SolutionOutDir>$(SolutionDir)\dist\$(Configuration)\Bin\</SolutionOutDir>
+  </PropertyGroup>
+
+
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
@@ -58,14 +62,14 @@
     <LibraryPath>$(LLVMInstallDir)\libcxx\lib\$(Configuration);$(LibraryPath)</LibraryPath>
     <ExternalIncludePath />
     <IncludePath>$(LLVMLibcxxIncludeDir);$(IncludePath)</IncludePath>
-    <OutDir>$(SolutionDir)\dist\$(Configuration)\Bin\</OutDir>
+    <OutDir>$(SolutionOutDir)</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <SourcePath />
     <LibraryPath>$(LLVMInstallDir)\libcxx\lib\$(Configuration);$(LibraryPath)</LibraryPath>
     <ExternalIncludePath />
     <IncludePath>$(LLVMLibcxxIncludeDir);$(IncludePath)</IncludePath>
-    <OutDir>$(SolutionDir)\dist\$(Configuration)\Bin\</OutDir>
+    <OutDir>$(SolutionOutDir)</OutDir>
   </PropertyGroup>
 
   <PropertyGroup Label="Vcpkg">
@@ -77,16 +81,16 @@
       <SDLCheck>true</SDLCheck>
       <WarningLevel>Level4</WarningLevel>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalOptions>-nobuiltininc %(AdditionalOptions)</AdditionalOptions>
       <ConformanceMode>true</ConformanceMode>
       <DisableLanguageExtensions>true</DisableLanguageExtensions>
+      <AdditionalOptions>-nobuiltininc %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>NotSet</SubSystem>
     </Link>
     <PostBuildEvent>
       <Command>
-        IF NOT EXIST "$(OutDir)\c++.dll" (copy "$(LLVMInstallDir)\libcxx\lib\$(Configuration)\c++.dll" "$(OutDir)\c++.dll")
+        IF NOT EXIST "$(SolutionOutDir)\c++.dll" (mklink /H "$(SolutionOutDir)\c++.dll" "$(LLVMInstallDir)\libcxx\lib\$(Configuration)\c++.dll")
       </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
